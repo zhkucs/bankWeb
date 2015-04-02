@@ -2,6 +2,7 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+String home = basePath + "/index.jsp";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -54,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         </p>
         <p align="center"> 
-          <input type="button" value="返回" name="Submit" onclick="window.open('<%=basePath%>')">
+          <a href="<%=home%>">返回</a>
         </p>
 
     </form>

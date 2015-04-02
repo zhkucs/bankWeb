@@ -1,5 +1,8 @@
+package controller;
+
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Iterator;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -7,13 +10,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.AccountService;
 
-public class Save extends HttpServlet {
+import model.Account;
+import model.History;
+
+public class FindHistory extends HttpServlet {
 
 	/**
 	 * Constructor of the object.
 	 */
-	public Save() {
+	public FindHistory() {
 		super();
 	}
 
@@ -35,29 +42,20 @@ public class Save extends HttpServlet {
 	 * @throws ServletException if an error occurred
 	 * @throws IOException if an error occurred
 	 */
-	public void doGet(HttpServletRequest request,
-			HttpServletResponse response)
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		response.setContentType("text/html");
-		response.setCharacterEncoding("UTF-8");// 设置响应的字符的编码为UTF-8
-		request.setCharacterEncoding("UTF-8");
-		Account acc = getAccount();
-		// 从form里取出参数amount
-		String amount = request.getParameter("amount");
-		acc.save(Double.parseDouble(amount));
-
+		// 取出当前登录用户名
+		String userName = (String) request.getSession().getAttribute("userName");
 		// 跳转到下一页面
 	    RequestDispatcher dispatcher = 
-	    	request.getRequestDispatcher("/success.jsp");
-	    request.setAttribute("amount", amount);
-	    request.setAttribute("message", "存钱成功了！");// 参数传递到success.jsp页面
+	    	request.getRequestDispatcher("/showHistory.jsp");
+	    request.setAttribute("history", getAccount(userName).getHistoryDB());
 	    dispatcher.forward(request, response);
 	}
 
-	static Account account= new Account();
-	private Account getAccount() {
-		return account;
+	private Account getAccount(String userName) {
+		return AccountService.getInstance().findByUserName(userName);
 	}
 
 	/**

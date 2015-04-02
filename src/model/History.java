@@ -1,6 +1,8 @@
+package model;
+
 import java.util.Date;
 
-// ÀúÊ·Çåµ¥
+// ï¿½ï¿½Ê·ï¿½åµ¥
 public class History {
 	private final OperateType type;
 	private final Date operateAt;	
@@ -14,7 +16,21 @@ public class History {
 	
 	@Override
 	public String toString() {
-		return String.format("²Ù×÷ÀàÐÍ:%s ²Ù×÷Ê±¼ä£º%s ½ð¶î£º%f" , 
+		return String.format("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%s ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ä£º%s ï¿½ï¿½î£º%f" , 
 				this.type,this.operateAt,this.amount);
 	}
+
+	public OperateType getType() {
+		return type;
+	}
+
+	public Date getOperateAt() {
+		return operateAt;
+	}
+
+	public double getAmount() {
+		return amount;
+	}
+	
+	
 }

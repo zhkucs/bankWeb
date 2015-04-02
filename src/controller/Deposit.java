@@ -1,3 +1,5 @@
+package controller;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -5,6 +7,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import service.AccountService;
+
+import model.Account;
+
 
 
 public class Deposit extends HttpServlet {
@@ -38,7 +45,8 @@ public class Deposit extends HttpServlet {
 			throws ServletException, IOException {
 
 		response.setContentType("text/html");
-		Account acc = getAccount();
+		String userName = (String) request.getSession().getAttribute("userName");
+		Account acc = getAccount(userName);
 		// 从form里取出参数amount
 		String amount = request.getParameter("amount");
 		acc.depoit(Double.parseDouble(amount));
@@ -46,9 +54,8 @@ public class Deposit extends HttpServlet {
 		out.println("Deposit ok! amount is " + amount);
 	}
 
-	private Account getAccount() {
-		// TODO Auto-generated method stub
-		return Save.account;
+	private Account getAccount(String userName) {
+		return AccountService.getInstance().findByUserName(userName);
 	}
 
 	/**

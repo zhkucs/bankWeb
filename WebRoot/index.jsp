@@ -50,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
           <A href='showSave.jsp'>存钱</A>
           <A href='showDeposit.jsp'>取钱</A>
-          <A href='#'>显示清单</A>
+          <A href='servlet/findHistory'>显示清单</A>
 
     </form>
 
