@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -50,8 +51,11 @@ public class Deposit extends HttpServlet {
 		// 从form里取出参数amount
 		String amount = request.getParameter("amount");
 		acc.depoit(Double.parseDouble(amount));
-		PrintWriter out = response.getWriter();
-		out.println("Deposit ok! amount is " + amount);
+		RequestDispatcher dispatcher = 
+	    	request.getRequestDispatcher("/success.jsp");
+	    request.setAttribute("amount", amount);
+	    request.setAttribute("message", "取钱成功了！");// 参数传递到success.jsp页面
+	    dispatcher.forward(request, response);
 	}
 
 	private Account getAccount(String userName) {
