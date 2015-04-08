@@ -36,9 +36,7 @@
           <label for="textfield">输入金额: </label>
           <input type="text" id="textfield" 
           name="amount">
-          <input type="checkbox" name="checkbox1">      
-          </p> <p> 
-          <select></select>>
+         <br>
           <input type="submit" value="确定" name="Submit">
         </p>
     </form>
