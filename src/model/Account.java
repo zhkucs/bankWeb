@@ -11,8 +11,20 @@ public class Account {
 	private String password;
 	private long id;
 	private double balance;
+	private String sid;
+	private String email;
 	
 	
+	
+	
+	public Account(String userName, String password, String sid, String email) {
+		super();
+		this.userName = userName;
+		this.password = password;
+		this.sid = sid;
+		this.email = email;
+	}
+
 	public Account(String userName, String password) {
 		super();
 		this.userName = userName;

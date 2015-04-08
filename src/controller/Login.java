@@ -58,7 +58,7 @@ public class Login extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 	
-	static Account account = new Account("a","a");
+	//static Account account = new Account("a","a");
 	private Account getAccount(String userName) {
 		// TODO Auto-generated method stub
 		return AccountService.getInstance().findByUserName(userName);
