@@ -2,5 +2,6 @@ package model;
 
 public enum OperateType {
 	SAVE, // ���
-	DEPOIT // ȡ��
+	DEPOIT, // ȡ��
+	LOGIN
 }

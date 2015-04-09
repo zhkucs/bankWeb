@@ -41,19 +41,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </tbody></table></td>
 
   </tr>
-
-  <tr> 
-
+  <tr>
      <td width="100%" bgcolor="#eaeaea" colspan="2"> 
-
-      <form action="post" name="Name"><p>
-
-          <A href='showSave.jsp'>存钱</A>
-          <A href='showDeposit.jsp'>取钱</A>
-          <A href='servlet/findHistory'>显示清单</A>
-
-    </form>
-
+      <form action="post" name="Name"><p> 
+          <a href="showSave.jsp">存钱</a> 
+          <a href="showDeposit.jsp">取钱</a> 
+          <a href="servlet/findHistory">显示清单</a> 
+          </clear><label>当前用户:<%=request.getAttribute("userName") %></label> 
+    </p></form>
   </td>
 
   </tr>

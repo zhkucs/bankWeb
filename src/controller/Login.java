@@ -2,6 +2,8 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import service.AccountService;
 
 import model.Account;
+import model.Log;
 
 
 public class Login extends HttpServlet {
@@ -51,9 +54,17 @@ public class Login extends HttpServlet {
 		
 		String nextPage = "/login.jsp";
 		if(account.getPassword().equals(password)){
-			nextPage = "/index.jsp";
+			if(account.getUserName().equals("admin")){
+				Map<String,Log> logs = (Map<String,Log>) request.getSession().getServletContext().getAttribute("logs");
+				request.setAttribute("logs", logs.values());
+				nextPage = "/admin.jsp";
+			}else{
+				nextPage = "/index.jsp";
+			}
 			request.getSession().setAttribute("userName", userName);
 		}
+		
+		request.setAttribute("userName",userName);
 		RequestDispatcher dispatcher = request.getRequestDispatcher(nextPage);
 		dispatcher.forward(request, response);
 	}
