@@ -47,7 +47,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <a href="showSave.jsp">存钱</a> 
           <a href="showDeposit.jsp">取钱</a> 
           <a href="servlet/findHistory">显示清单</a> 
-          </clear><label>当前用户:<%=request.getAttribute("userName") %></label> 
+          <a href="servlet/logout">注销</a> 
+         <label>当前用户:<%=request.getSession().getAttribute("userName") %></label> 
     </p></form>
   </td>
 

@@ -77,5 +77,9 @@ public class Account {
 	public String getUserName() {
 		return userName;
 	}
+
+	public boolean isAdmin() {
+		return this.userName.equals("admin");
+	}
 	
 }

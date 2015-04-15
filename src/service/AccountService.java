@@ -14,7 +14,6 @@ public class AccountService {
 	AccountService(){
 		db = new HashMap<String,Account>();
 		db.put("a", new Account("a","a"));
-		db.put("b", new Account("b","b"));
 		db.put("admin", new Account("admin","a"));
 	}
 	

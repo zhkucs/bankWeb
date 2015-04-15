@@ -2,7 +2,6 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
@@ -54,17 +53,18 @@ public class Login extends HttpServlet {
 		
 		String nextPage = "/login.jsp";
 		if(account.getPassword().equals(password)){
-			if(account.getUserName().equals("admin")){
-				Map<String,Log> logs = (Map<String,Log>) request.getSession().getServletContext().getAttribute("logs");
-				request.setAttribute("logs", logs.values());
+			if(account.isAdmin()){
 				nextPage = "/admin.jsp";
+				// 拿到servletContext里的logs
+				Map<String,Log> map = (Map<String, Log>) request.getSession().getServletContext().getAttribute("logs");
+				request.setAttribute("logs", map.values());
 			}else{
 				nextPage = "/index.jsp";
 			}
 			request.getSession().setAttribute("userName", userName);
 		}
 		
-		request.setAttribute("userName",userName);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(nextPage);
 		dispatcher.forward(request, response);
 	}

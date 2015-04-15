@@ -42,7 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 					<td width="100%" bgcolor="#eaeaea" colspan="2">
 
-						<form action="servlet/login" name="Name">
+						<form action="<%=basePath %>servlet/login" name="Name">
 							<p>
 
 								<label for="textfield">

@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="checkLogin.jsp" flush="true"></jsp:include>
 
  <table width="584" cellspacing="0" cellpadding="4" border="0" height="147">
 
