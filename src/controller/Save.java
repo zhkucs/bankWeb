@@ -57,7 +57,7 @@ public class Save extends HttpServlet {
 
 		// 跳转到下一页面
 	    RequestDispatcher dispatcher = 
-	    	request.getRequestDispatcher("/success.jsp");
+	    	request.getRequestDispatcher("/auth/success.jsp");
 	    request.setAttribute("amount", amount);
 	    request.setAttribute("message", "存钱成功了！");// 参数传递到success.jsp页面
 	    dispatcher.forward(request, response);

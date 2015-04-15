@@ -1,9 +1,10 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 // ��ʷ�嵥
-public class History {
+public class History implements Serializable{
 	private final OperateType type;
 	private final Date operateAt;	
 	private final double amount;

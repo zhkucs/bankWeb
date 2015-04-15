@@ -32,7 +32,7 @@
 
      <td width="100%" bgcolor="#eaeaea" colspan="2"> 
 
-      <form action="servlet/Deposit" name="Name"><p>
+      <form action="../servlet/Deposit" name="Name"><p>
           <label for="textfield">输入金额: </label>
           <input type="text" id="textfield" 
           name="amount">

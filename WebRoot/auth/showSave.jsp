@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="checkLogin.jsp" flush="true"></jsp:include>
 
  <table width="584" cellspacing="0" cellpadding="4" border="0" height="147">
 
@@ -34,7 +33,7 @@
      <td width="100%" bgcolor="#eaeaea" colspan="2"><div align="center">  
  
       </div>
-      <form action="servlet/Save" name="Name"><p align="center">
+      <form action="../servlet/Save" name="Name"><p align="center">
           <label for="textfield">输入金额: </label>
           <input type="text" id="textfield" 
           name="amount">

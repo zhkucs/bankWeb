@@ -49,7 +49,7 @@ public class FindHistory extends HttpServlet {
 		String userName = (String) request.getSession().getAttribute("userName");
 		// 跳转到下一页面
 	    RequestDispatcher dispatcher = 
-	    	request.getRequestDispatcher("/showHistory.jsp");
+	    	request.getRequestDispatcher("/auth/showHistory.jsp");
 	    request.setAttribute("history", getAccount(userName).getHistoryDB());
 	    dispatcher.forward(request, response);
 	}

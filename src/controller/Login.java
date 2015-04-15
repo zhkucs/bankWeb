@@ -54,7 +54,7 @@ public class Login extends HttpServlet {
 		String nextPage = "/login.jsp";
 		if(account.getPassword().equals(password)){
 			if(account.isAdmin()){
-				nextPage = "/admin.jsp";
+				nextPage = "/auth/admin.jsp";
 				// 拿到servletContext里的logs
 				Map<String,Log> map = (Map<String, Log>) request.getSession().getServletContext().getAttribute("logs");
 				request.setAttribute("logs", map.values());

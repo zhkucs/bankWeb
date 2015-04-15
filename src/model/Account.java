@@ -1,12 +1,13 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
 // �˺���
-public class Account {
+public class Account implements Serializable{
 	private String userName;
 	private String password;
 	private long id;

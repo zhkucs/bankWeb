@@ -52,7 +52,7 @@ public class Deposit extends HttpServlet {
 		String amount = request.getParameter("amount");
 		acc.depoit(Double.parseDouble(amount));
 		RequestDispatcher dispatcher = 
-	    	request.getRequestDispatcher("/success.jsp");
+	    	request.getRequestDispatcher("/auth/success.jsp");
 	    request.setAttribute("amount", amount);
 	    request.setAttribute("message", "取钱成功了！");// 参数传递到success.jsp页面
 	    dispatcher.forward(request, response);
