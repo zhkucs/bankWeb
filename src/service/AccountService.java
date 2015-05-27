@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,17 +27,20 @@ public class AccountService {
 	Map<String,Account> db = new HashMap<String,Account>();
 	
 	public Account findByUserName(String userName){
-		return db.get(userName);		
+		return DatabaseAccess.getInstance().findByUserName(userName);
 	}
 	
 	public Account findHistoryByUserName(String userName){
 		return db.get(userName);		
 	}
 	
-	public void insert(Account account){
-		db.put(account.getUserName(), account);
-	}
+	public void insert(Account account) throws SQLException{
+		DatabaseAccess.getInstance().perist(account);
+		//db.put(account.getUserName(), account);
+	}	
 	
+	
+
 	public void deleteByUserName(String userName){
 		
 	}

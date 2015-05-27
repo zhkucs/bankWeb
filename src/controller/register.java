@@ -2,6 +2,7 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URLEncoder;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -64,13 +65,13 @@ public class register extends HttpServlet {
 			}
 			/// 检查其他
 			// ...
-			Account acc = new Account(userName, password1, sid, email);
+			Account acc = new Account(userName, password1, 0, sid,email);
 			AccountService.getInstance().insert(acc);
-		}catch(RuntimeException e){
+		}catch(SQLException e){
 			String message = URLEncoder.encode(e.getMessage(), "gb2312");
 			url = "../showRegister.jsp?message=";
 			url += message;
-		}
+		} 
 			
 		response.sendRedirect(url);		
 	}

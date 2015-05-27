@@ -14,14 +14,13 @@ public class Account implements Serializable{
 	private double balance;
 	private String sid;
 	private String email;
-	
-	
-	
-	
-	public Account(String userName, String password, String sid, String email) {
+
+	public Account(String userName, String password, double balance,
+			String sid, String email) {
 		super();
 		this.userName = userName;
 		this.password = password;
+		this.balance = balance;
 		this.sid = sid;
 		this.email = email;
 	}
@@ -81,6 +80,22 @@ public class Account implements Serializable{
 
 	public boolean isAdmin() {
 		return this.userName.equals("admin");
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setSid(String sid) {
+		this.sid = sid;
+	}
+
+	public String getSid() {
+		return sid;
 	}
 	
 }

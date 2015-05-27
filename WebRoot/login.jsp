@@ -68,7 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<p>
 
 								<input type="submit" value="GO" name="Submit">
-								<a href="showRegister.jsp">注册</a>
+								<a href="<%=basePath%>showRegister.jsp">注册</a>
 
 							</p>
 
